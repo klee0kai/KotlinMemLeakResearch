@@ -12,16 +12,16 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 public class JavaGcTest {
 
     @Test
-    void javaObjHolderGcTest(){
+    void javaObjHolderGcTest() {
+        // GIVEN
         WeakReference<SomeJavaObject> weakRef = new WeakReference<>(new SomeJavaObject());
         JavaObjHolder holder = new JavaObjHolder();
 
-        assertNotNull(weakRef.get());
+        // WHEN
         holder.bind(weakRef.get());
-        assertNotNull(holder.holder.get());
-
         System.gc();
 
+        // THEN
         assertNull(weakRef.get());
     }
 

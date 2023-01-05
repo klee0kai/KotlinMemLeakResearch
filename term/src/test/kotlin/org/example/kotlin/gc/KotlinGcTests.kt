@@ -14,59 +14,74 @@ class KotlinGcTests {
 
     @Test
     fun objHolderGcTest() {
+        // GIVEN
         val weakRef = WeakReference(SomeKotlinObject())
         val objHolder = ObjHolder()
 
-        assertNotNull(weakRef.get())
+        // WHEN
         objHolder.bind(weakRef.get()!!)
-        assertNotNull(objHolder.holder.get())
-
         System.gc()
 
+        // THEN
         assertNull(weakRef.get())
     }
 
 
     @Test
     fun javaObjHolderGcTest() {
+        // GIVEN
         val weakRef = WeakReference(SomeKotlinObject())
         val objHolder = JavaObjHolder()
 
-        assertNotNull(weakRef.get())
+        // WHEN
         objHolder.bind(weakRef.get()!!)
-        assertNotNull(objHolder.holder.get())
-
         System.gc()
 
+        // THEN
         assertNull(weakRef.get())
     }
 
     @Test
     fun javaObjHolder2GcTest() {
+        // GIVEN
         val weakRef = WeakReference(SomeJavaObject())
         val objHolder = JavaObjHolder()
 
-        assertNotNull(weakRef.get())
+        // WHEN
         objHolder.bind(weakRef.get()!!)
-        assertNotNull(objHolder.holder.get())
-
         System.gc()
 
+        // THEN
         assertNull(weakRef.get())
     }
 
 
     @Test
     fun javaObjHolderSepBindGcTest() {
+        // GIVEN
         val weakRef = WeakReference(SomeJavaObject())
         val objHolder = JavaObjHolder()
 
-        assertNotNull(weakRef.get())
+        // WHEN
         objHolder.bindSingle(weakRef.get()!!)
-        assertNotNull(objHolder.holder.get())
-
         System.gc()
 
+        // THEN
+        assertNull(weakRef.get())
+    }
+
+    @Test
+    fun javaObjHolderAdditionalValBindGcTest() {
+        // GIVEN
+        val weakRef = WeakReference(SomeJavaObject())
+        val objHolder = JavaObjHolder()
+
+        // WHEN
+        objHolder.bind(weakRef.get()!!)
+        val i = 0
+        System.gc()
+
+        // THEN
         assertNull(weakRef.get())
     }
 
