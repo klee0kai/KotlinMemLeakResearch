@@ -1,7 +1,8 @@
 # Kotlin GC Research
 
 Исследование работы Garbage Collector на java и на kotlin.
-Одинаковый тест для java и для kotlin проходит по-разному.
+Одинаковый тест для java и для kotlin проходит 
+[по-разному](https://github.com/klee0kai/KotlinMemLeakResearch/actions/runs/3860669356/jobs/6581146165).
 
 В исследовании рассмотрен вызов `System.gc()` 
 после вызова метода с переменным кол-вом параметров. 
