@@ -16,7 +16,7 @@
 все созданные обьекты без сильных ссылок правильно собираются.
 
 ``` java
-@Test
+✅ @Test
 void javaObjHolderGcTest() {
     // GIVEN
     WeakReference<SomeJavaObject> weakRef = new WeakReference<>(new SomeJavaObject());
@@ -32,7 +32,7 @@ void javaObjHolderGcTest() {
 Для kotlin, же тест не срабатывает. 
 
 ```kotlin
-@Test
+❌ @Test
 fun objHolderGcTest() {
     // GIVEN
     val weakRef = WeakReference(SomeKotlinObject())
@@ -49,7 +49,7 @@ fun objHolderGcTest() {
 Выносим вызов в `fun JavaObjHolder.bindSingle(obj: Any)`
 
 ```kotlin
-@Test
+✅ @Test
 fun javaObjHolderSepBindGcTest() {
     // GIVEN
     val weakRef = WeakReference(SomeJavaObject())
@@ -65,7 +65,7 @@ fun javaObjHolderSepBindGcTest() {
 Однако, совсем неожиданным, является исправление дополнительным обьявлением переменной перед сборкой мусора.
 
 ```kotlin
-@Test
+✅ @Test
 fun javaObjHolderAdditionalValBindGcTest() {
     // GIVEN
     val weakRef = WeakReference(SomeJavaObject())
