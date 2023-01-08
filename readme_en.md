@@ -5,6 +5,7 @@
 Garbage rollector work research for java and kotlin.
 Run same test for java, kotlin have 
 [different results](https://github.com/klee0kai/KotlinMemLeakResearch/actions/runs/3860669356/jobs/6581146165).
+Actual for [kotlin 1.8.0](https://github.com/klee0kai/KotlinMemLeakResearch/actions/runs/3865810249/jobs/6589550437)
 
 The research examined the call to `System.gc()`
 after calling a method with a variable number of parameters.
