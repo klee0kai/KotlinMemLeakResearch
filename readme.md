@@ -84,7 +84,7 @@ fun javaObjHolderAdditionalValBindGcTest() {
 
 ## Refs 
 
- - [Issue](https://youtrack.jetbrains.com/issue/KT-55818)
+ - [Issue KT-55818](https://youtrack.jetbrains.com/issue/KT-55818)
 
 
 ## License
